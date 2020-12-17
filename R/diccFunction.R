@@ -7,7 +7,6 @@
 #'
 #' @author Gabriel N. Camargo-Toledo \email{gcamargo@@sensata.io}
 #' @return Dataframe dictionary and exported to .csv and .Rdata useful for data cleaning
-# prueba
 #' @keywords dictionary diccionario sensata
 #' @import tidyverse
 #'

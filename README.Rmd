@@ -40,9 +40,11 @@ This is a basic example which shows you how to create a dictionary of the microd
 
 Este es un ejemplo básico que muestra cómo crear un diccionario de los microdatos:
 
-```{r example, eval=TRUE}
+```{r example, eval=FALSE}
 library(sensataDataProg)
 
 diccFunction(dat = pathOfMongoCsvFile, f = pathToSaveDictionaries )
 
 ```
+
+Fin.
