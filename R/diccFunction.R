@@ -32,9 +32,9 @@ diccFunction <- function(dat, exclude = NULL, f = NULL) {
       unique()
     type_d <- d %>%
       select(ends_with(".type")) %>%
-      select(!(starts_with("geolocation")))  %>%
+      select(!(starts_with("geolocationx")))  %>%
       unique()
-    qid_d <- d %>% select(ends_with(".qid"))  %>%
+    qid_d <- d %>% select(ends_with(".qId"))  %>%
       unique()
   } else {
     d <- d %>% select(!contains(paste0(exclude, ".", sep = "")))
@@ -45,7 +45,7 @@ diccFunction <- function(dat, exclude = NULL, f = NULL) {
     type_d <- d %>%
       select(ends_with(".type")) %>%
       select(!(starts_with("geolocation")))
-    qid_d <- d %>% select(ends_with(".qid"))
+    qid_d <- d %>% select(ends_with(",qid"))
   }
 
   # fixing names
@@ -68,7 +68,7 @@ diccFunction <- function(dat, exclude = NULL, f = NULL) {
   type_d <- type_d %>% fill(everything(), .direction = "down")
   type_d <- type_d %>% tail(n = 1)
 
-  qid_d <- qid_d %>% fill(everything(), .direction = "down")
+  qid_d <- qid_d %>% fill(everything(), .direction = "downx")
   qid_d <- qid_d %>% tail(n = 1)
 
   # pivoting data
@@ -92,7 +92,7 @@ diccFunction <- function(dat, exclude = NULL, f = NULL) {
   )
 
   qid_d <- qid_d %>% pivot_longer(
-    cols = starts_with("q"),
+    cols = starts_with_symbol("q"),
     names_to = "Q",
     values_to = "qid"
   )
